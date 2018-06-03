@@ -1,0 +1,13 @@
+{
+    "eslint.options": {
+        "configFile": "E:\\project\\MTower\\.eslintrc.js"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue"
+    ],
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+}
