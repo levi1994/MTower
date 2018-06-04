@@ -28,7 +28,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .game {
     position: absolute;
     left: 0;
@@ -47,5 +47,33 @@ export default {
 }
 .right {
   width: 66%;
+}
+
+.person {
+  background: #fff;
+}
+.space {
+  background: url('../assets/background/bg13.png') no-repeat;
+  background-size: 100% 100%;
+}
+.wall {
+  background: url('../assets/background/bg7.png') no-repeat;
+  background-size: 100% 100%;
+}
+.stair-down {
+  background: url('../assets/background/bg15.png') no-repeat;
+  background-size: 100% 100%;
+}
+.stair-up {
+  background: url('../assets/background/bg16.png') no-repeat;
+  background-size: 100% 100%;
+}
+.item {
+  width: 100%;
+  height: 100%;
+}
+.door_yellow {
+  background: url('../assets/door/d5.png') no-repeat;
+  background-size: 100% 100%;
 }
 </style>

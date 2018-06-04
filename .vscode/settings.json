@@ -11,5 +11,6 @@
     "eslint.autoFixOnSave": true,
     "eslint.alwaysShowStatus": true,
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "jshint.enable": false,
 }
