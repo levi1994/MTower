@@ -18,20 +18,6 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      map: [
-        [4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-        [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1],
-        [1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1],
-        [2, 5, 2, 2, 1, 2, 2, 2, 1, 2, 1],
-        [1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1],
-        [1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 1],
-        [2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 1, 2, 2, 1, 2, 2, 2, 1, 2],
-        [1, 1, 1, 2, 1, 0, 1, 2, 1, 1, 1],
-        [1, 1, 1, 2, 1, 3, 1, 2, 1, 1, 1]
-      ]
     }
   },
   methods: {
@@ -42,16 +28,26 @@ export default {
     move (x, y) {
       let tx = +this.current[0] + x;
       let ty = +this.current[1] + y;
-      if (tx < 0 || ty < 0) return;
+      if (tx < 0 || ty < 0 || ty > 10 || tx > 10) return;
       let target = this.map[ty][tx];
       if (target !== Code.B_WALL) {
-        let row1 = this.map[+this.current[1]];
-        row1[+this.current[0]] = 1;
-        let row2 = this.map[ty];
-        row2[tx] = 0;
-        Vue.set(this.map, +this.current[1], row1);
-        Vue.set(this.map, ty, row2);
+        if (target === Code.B_SPACE) {
+          this.moveTo(tx, ty);
+        } else {
+          let item = ItemBuilder(target);
+          if (item.moveIn()) {
+            this.moveTo(tx, ty);
+          }
+        }
       }
+    },
+    moveTo (tx, ty) {
+      let row1 = this.map[+this.current[1]];
+      row1[+this.current[0]] = 1;
+      let row2 = this.map[ty];
+      row2[tx] = 0;
+      Vue.set(this.map, +this.current[1], row1);
+      Vue.set(this.map, ty, row2);
     }
   },
   computed: {
@@ -64,6 +60,12 @@ export default {
           }
         }
       }
+    },
+    map () {
+      return this.$store.state.map;
+    },
+    person () {
+      return this.$store.state.person;
     }
   },
   components: {
