@@ -35,9 +35,9 @@ export default {
           this.moveTo(tx, ty);
         } else {
           let item = ItemBuilder(target);
-          if (item.moveIn()) {
+          item.excute().then(() => {
             this.moveTo(tx, ty);
-          }
+          });
         }
       }
     },
@@ -78,7 +78,6 @@ export default {
       const KEY_UP = 38;
       const KEY_DOWN = 40;
       const code = e.keyCode;
-      console.log(code);
       if (code === KEY_LEFT) {
         this.move(-1, 0);
       } else if (code === KEY_RIGHT) {

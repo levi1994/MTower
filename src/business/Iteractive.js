@@ -1,8 +1,12 @@
 /**
  * 可交互物体
  */
-import Item from './Item';
+import vm from '../main';
 
-export default class Iteractive extends Item {
-  moveIn () {}
+export default class Iteractive {
+  constructor () {
+    // 对所有子类实例注入vue实例，使子类可以操作store
+    this.$vm = vm;
+  }
+  excute () {}
 };

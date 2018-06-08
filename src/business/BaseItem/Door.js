@@ -1,13 +1,15 @@
 import Iteractive from '../Iteractive';
 
 export default class Door extends Iteractive {
-  caculate () {
+  check () {
     console.log('door caculate');
   }
-  moveIn () {
-    if (this.caculate()) {
-      console.log('计算成功');
-      return true;
+  excute () {
+    if (this.check()) {
+      var s = this.doExcute();
+      return s;
+    } else {
+      return Promise.reject(new Error());
     }
   }
 };

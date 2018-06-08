@@ -1,5 +1,10 @@
+import { MUTATIONS } from './_constants';
+
 export default {
-  changeName (state, name) {
+  [MUTATIONS.CHANGE_NAME] (state, name) {
     state.name = name;
+  },
+  [MUTATIONS.CHANGE_PERSON] (state, person) {
+    state.person = person;
   }
 };

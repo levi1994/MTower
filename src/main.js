@@ -11,9 +11,11 @@ const store = new Vuex.Store(states);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
   store
 });
+
+export default vm;
