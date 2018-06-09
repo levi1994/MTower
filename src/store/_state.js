@@ -1,17 +1,19 @@
+import Code from '../constants/code.js';
+
 export default {
   name: 'lichun',
   map: [
-    [4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-    [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1],
-    [1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1],
-    [2, 5, 2, 2, 1, 2, 2, 2, 1, 2, 1],
-    [1, 5, 1, 2, 1, 1, 1, 1, 1, 2, 1],
-    [1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 1],
-    [2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 2, 2, 1, 2, 2, 2, 1, 2],
-    [1, 1, 1, 2, 1, 0, 1, 2, 1, 1, 1],
-    [1, 1, 1, 2, 1, 3, 1, 2, 1, 1, 1]
+    [Code.B_STAIR_UP, Code.B_SPACE, Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE],
+    [Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_SPACE],
+    [Code.B_POTION_RED, Code.B_SPACE, Code.B_SPACE, Code.B_DOOR_YELLOW, Code.B_SPACE, Code.B_WALL, Code.B_POTION_RED, Code.B_KEY_YELLOW, Code.B_POTION_RED, Code.B_WALL, Code.B_SPACE],
+    [Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_SPACE, Code.B_WALL, Code.B_POTION_RED, Code.B_KEY_YELLOW, Code.B_POTION_RED, Code.B_WALL, Code.B_SPACE],
+    [Code.B_WALL, Code.B_DOOR_YELLOW, Code.B_WALL, Code.B_WALL, Code.B_SPACE, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_SPACE, Code.B_WALL, Code.B_SPACE],
+    [Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_SPACE, Code.B_DOOR_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_SPACE],
+    [Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_SPACE, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_SPACE],
+    [Code.B_WALL, Code.B_DOOR_YELLOW, Code.B_WALL, Code.B_WALL, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE],
+    [Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_WALL, Code.B_DOOR_RED, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_DOOR_YELLOW, Code.B_WALL],
+    [Code.B_POTION_RED, Code.B_POTION_BLUE, Code.B_KEY_YELLOW, Code.B_WALL, Code.B_KEY_RED, Code.B_PERSON, Code.B_SPACE, Code.B_WALL, Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_KEY_BLUE],
+    [Code.B_POTION_RED, Code.B_SWORD, Code.B_KEY_YELLOW, Code.B_WALL, Code.B_SPACE, Code.B_STAIR_DOWN, Code.B_SPACE, Code.B_WALL, Code.B_KEY_YELLOW, Code.B_KEY_YELLOW, Code.B_KEY_YELLOW]
   ],
   person: {
     hp: 1000,

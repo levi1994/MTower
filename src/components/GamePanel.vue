@@ -2,7 +2,7 @@
   <div class="game-panel">
       <div v-for="(col, y) in map" class="col" :key="y">
           <div v-for="(item, x) in col" :key="x" class="block">
-              <block-item :id="item" />
+              <block-item :blockInfo="item" />
           </div>
       </div>
   </div>
@@ -28,24 +28,30 @@ export default {
     move (x, y) {
       let tx = +this.current[0] + x;
       let ty = +this.current[1] + y;
+
       if (tx < 0 || ty < 0 || ty > 10 || tx > 10) return;
       let target = this.map[ty][tx];
-      if (target !== Code.B_WALL) {
-        if (target === Code.B_SPACE) {
-          this.moveTo(tx, ty);
-        } else {
-          let item = ItemBuilder(target);
+      if (target.business) {
+        let item = target.business;
+        item.$vm = this;
+        if (item) {
           item.excute().then(() => {
             this.moveTo(tx, ty);
           });
+        } else {
+          this.moveTo(tx, ty);
+        }
+      } else {
+        if (target.code === Code.B_SPACE.code) {
+          this.moveTo(tx, ty);
         }
       }
     },
     moveTo (tx, ty) {
       let row1 = this.map[+this.current[1]];
-      row1[+this.current[0]] = 1;
+      row1[+this.current[0]] = Code.B_SPACE;
       let row2 = this.map[ty];
-      row2[tx] = 0;
+      row2[tx] = Code.B_PERSON;
       Vue.set(this.map, +this.current[1], row1);
       Vue.set(this.map, ty, row2);
     }
@@ -55,7 +61,7 @@ export default {
       for (let y in this.map) {
         let row = this.map[y];
         for (let x in row) {
-          if (row[x] === 0) {
+          if (row[x].code === 0) {
             return [x, y];
           }
         }
