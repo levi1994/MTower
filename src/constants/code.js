@@ -7,6 +7,8 @@ import RedKey from '../business/Things/Key/RedKey';
 import RedPotion from '../business/Things/Potion/RedPotion';
 import BluePotion from '../business/Things/Potion/BluePotion';
 
+import GreenHead from '../business/Monster/GreenHead';
+
 export default {
   /**
    * 0 - 99 为基础素材（墙壁，门，楼梯，npc等等）
@@ -99,7 +101,12 @@ export default {
   B_SWORD: {
     code: 130,
     img: require('../assets/things/t9.png')
-  }
+  },
 
   // 1000 - 2000 为怪物
+  B_GREEN_HEAD: {
+    code: 1000,
+    img: require('../assets/monster/green_head.png'),
+    business: new GreenHead()
+  }
 };

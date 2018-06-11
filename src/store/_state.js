@@ -3,7 +3,7 @@ import Code from '../constants/code.js';
 export default {
   name: 'lichun',
   map: [
-    [Code.B_STAIR_UP, Code.B_SPACE, Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE],
+    [Code.B_STAIR_UP, Code.B_SPACE, Code.B_KEY_YELLOW, Code.B_GREEN_HEAD, Code.B_GREEN_HEAD, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE, Code.B_SPACE],
     [Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_WALL, Code.B_SPACE],
     [Code.B_POTION_RED, Code.B_SPACE, Code.B_SPACE, Code.B_DOOR_YELLOW, Code.B_SPACE, Code.B_WALL, Code.B_POTION_RED, Code.B_KEY_YELLOW, Code.B_POTION_RED, Code.B_WALL, Code.B_SPACE],
     [Code.B_KEY_YELLOW, Code.B_SPACE, Code.B_SPACE, Code.B_WALL, Code.B_SPACE, Code.B_WALL, Code.B_POTION_RED, Code.B_KEY_YELLOW, Code.B_POTION_RED, Code.B_WALL, Code.B_SPACE],
