@@ -13,6 +13,7 @@ import BlockItem from './BlockItem.vue';
 import ItemBuilder from '../business/ItemBuilder.js';
 import Code from '../constants/code.js';
 import Vue from 'vue';
+import Monster from '../business/Monster/Monster.js';
 
 export default {
   name: 'HelloWorld',
@@ -31,8 +32,8 @@ export default {
 
       if (tx < 0 || ty < 0 || ty > 10 || tx > 10) return;
       let target = this.map[ty][tx];
-      if (target.business) {
-        let item = target.business;
+      if (target.info || target.business) {
+        let item = target.info ? new Monster(target.info) : target.business;
         item.$vm = this;
         if (item) {
           item.excute().then(() => {
