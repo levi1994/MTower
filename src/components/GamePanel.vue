@@ -10,10 +10,10 @@
 
 <script>
 import BlockItem from './BlockItem.vue';
-import ItemBuilder from '../business/ItemBuilder.js';
 import Code from '../constants/code/index.js';
 import Vue from 'vue';
 import Monster from '../business/Monster/Monster.js';
+import Thing from '../business/Thing/Thing.js';
 import { ACTIONS } from '../store/_constants.js';
 
 export default {
@@ -24,10 +24,6 @@ export default {
     }
   },
   methods: {
-    renderItem (id) {
-      let obj = ItemBuilder(id);
-      return obj.render();
-    },
     move (x, y) {
       let tx = +this.current[0] + x;
       let ty = +this.current[1] + y;
@@ -35,7 +31,12 @@ export default {
       if (tx < 0 || ty < 0 || ty > 10 || tx > 10) return;
       let target = this.map[ty][tx];
       if (target.info || target.business) {
-        let item = target.info ? new Monster(target.info) : target.business;
+        let item;
+        if (target.business) {
+          item = target.business;
+        } else {
+          item = target.code > 1000 ? new Monster(target.info) : new Thing(target.info);
+        }
         item.$vm = this;
         if (item) {
           item.excute().then(() => {
