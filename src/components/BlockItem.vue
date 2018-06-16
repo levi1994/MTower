@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img :src="blockInfo.img" alt="">
+    <img :src="img" alt="">
   </div>
 </template>
 
@@ -9,10 +9,24 @@ import Code from '../constants/code.js';
 
 export default {
   name: 'HelloWorld',
-  props: ['blockInfo'],
+  props: ['blockInfo', 'timestamp'],
   data () {
     return {
-      Code
+      Code,
+      index: 0
+    }
+  },
+  created () {
+  },
+  computed: {
+    img: function () {
+      let timestamp = this.timestamp;
+      if (Array.isArray(this.blockInfo.img)) {
+        let arrayLength = this.blockInfo.img.length;
+        return this.blockInfo.img[timestamp % arrayLength];
+      } else {
+        return this.blockInfo.img;
+      }
     }
   }
 }

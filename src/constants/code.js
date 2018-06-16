@@ -14,9 +14,11 @@ export default {
   // 主角
   B_PERSON: {
     code: 0,
-    img: require('../assets/person/p1.png')
+    img: [require('../assets/person/p1.png'),
+      require('../assets/person/p2.png'),
+      require('../assets/person/p3.png'),
+      require('../assets/person/p4.png')]
   },
-  // B_PERSON: 0, // 主角
   B_SPACE: {
     code: 1,
     img: require('../assets/background/bg13.png')

@@ -2,7 +2,7 @@
   <div class="game-panel">
       <div v-for="(col, y) in map" class="col" :key="y">
           <div v-for="(item, x) in col" :key="x" class="block">
-              <block-item :blockInfo="item" />
+              <block-item :blockInfo="item" :timestamp="timestamp"/>
           </div>
       </div>
   </div>
@@ -16,9 +16,10 @@ import Vue from 'vue';
 import Monster from '../business/Monster/Monster.js';
 
 export default {
-  name: 'HelloWorld',
+  name: 'GamePanel',
   data () {
     return {
+      timestamp: 1
     }
   },
   methods: {
@@ -95,6 +96,11 @@ export default {
         this.move(0, 1);
       }
     }
+  },
+  mounted () {
+    setInterval(() => {
+      this.timestamp++;
+    }, 100);
   }
 }
 </script>
