@@ -6,5 +6,8 @@ export default {
   },
   [ACTIONS.CHANGE_PERSON] ({ commit }, person) {
     commit(MUTATIONS.CHANGE_PERSON, person);
+  },
+  [ACTIONS.CHANGE_DIRECTION] ({ commit }, direction) {
+    commit(MUTATIONS.CHANGE_DIRECTION, direction);
   }
 };

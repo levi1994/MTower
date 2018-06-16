@@ -11,9 +11,10 @@
 <script>
 import BlockItem from './BlockItem.vue';
 import ItemBuilder from '../business/ItemBuilder.js';
-import Code from '../constants/code.js';
+import Code from '../constants/code/index.js';
 import Vue from 'vue';
 import Monster from '../business/Monster/Monster.js';
+import { ACTIONS } from '../store/_constants.js';
 
 export default {
   name: 'GamePanel',
@@ -86,21 +87,27 @@ export default {
       const KEY_UP = 38;
       const KEY_DOWN = 40;
       const code = e.keyCode;
+      let direction;
       if (code === KEY_LEFT) {
         this.move(-1, 0);
+        direction = 0;
       } else if (code === KEY_RIGHT) {
         this.move(1, 0);
+        direction = 1;
       } else if (code === KEY_UP) {
         this.move(0, -1);
+        direction = 2;
       } else if (code === KEY_DOWN) {
         this.move(0, 1);
+        direction = 3;
       }
+      this.$store.dispatch(ACTIONS.CHANGE_DIRECTION, direction);
     }
   },
   mounted () {
     setInterval(() => {
       this.timestamp++;
-    }, 100);
+    }, 50);
   }
 }
 </script>

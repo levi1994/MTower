@@ -1,4 +1,4 @@
-import Code from '../constants/code.js';
+import Code from '../constants/code/index.js';
 
 export default {
   name: 'lichun',
@@ -27,5 +27,6 @@ export default {
       blue: 1,
       yellow: 1
     }
-  }
+  },
+  direction: 0
 };

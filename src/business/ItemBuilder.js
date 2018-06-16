@@ -1,4 +1,4 @@
-import Code from '../constants/code.js';
+import Code from '../constants/code/index';
 import YellowDoor from './BaseItem/door/YellowDoor';
 import BlueDoor from './BaseItem/door/BlueDoor';
 import RedDoor from './BaseItem/door/RedDoor';

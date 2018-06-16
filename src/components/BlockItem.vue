@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Code from '../constants/code.js';
+import Code from '../constants/code/index.js';
 
 export default {
   name: 'HelloWorld',
@@ -21,11 +21,20 @@ export default {
   computed: {
     img: function () {
       let timestamp = this.timestamp;
-      if (Array.isArray(this.blockInfo.img)) {
-        let arrayLength = this.blockInfo.img.length;
-        return this.blockInfo.img[timestamp % arrayLength];
+      let direction = this.$store.state.direction;
+
+      let imgs;
+      // 如果是主角，则根据状态选择图片
+      if (this.blockInfo.code === 0) {
+        imgs = this.blockInfo.img[direction];
       } else {
-        return this.blockInfo.img;
+        imgs = this.blockInfo.img;
+      }
+      if (Array.isArray(imgs)) {
+        let arrayLength = imgs.length;
+        return imgs[timestamp % arrayLength];
+      } else {
+        return imgs;
       }
     }
   }
